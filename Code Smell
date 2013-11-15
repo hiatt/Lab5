@@ -71,3 +71,53 @@ Person FindPerson( const Person & p )
 http://c2.com/cgi/wiki?DuplicatedCode
 
 Dillon Hiatt
+
+
+Example of a Large Class
+This code smell is when the user write a program and it has way too much of the program in one class.
+It could also mean that it has too many global variables.
+
+So lets say that a user wants to create a program about a person and their job, and they want to make a some data structure
+to store a person's salary.
+
+Class PersonAndJob {
+
+*Here go all the necessary variable declarations for people, jobs, and data structure*
+
+*Here go all the methods for a person*
+
+*Here go all the methods for jobs*
+
+Here go all the methods for data structure*
+
+};
+
+Instead, it should be split up as such where each class can use the others object info:
+
+Class Person {
+ *variables and methods go here*
+};
+
+Class Job {
+ *variables and methods go here*
+};
+
+Class SomeDataStructure {
+ *Variables and methods go here*
+};
+Alex Richter
+
+
+Example of Too Many Paramaters
+One thing that can happen when making methods is that there may be way too much information passed in.
+This can lead to difficult to interpret functions, and in general are annoying to look at.
+
+private 7DObject DoDifficultCalculations ( int x, int y, int z, int alpha, int beta, int gamma, int zed);
+
+What we can do to fix this is either split up the function into helper functions if need be, or find a way to group all of 
+that information into a more useful object, like so:
+
+private 7DObject DoDifficultCalculations ( 7DObject handy7D );
+
+Alex Richter
+
