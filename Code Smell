@@ -1,0 +1,73 @@
+The code smell that I chose is having an empty catch exception clause when an exception is thrown. The programmer will put their code in a try catch block because they don’t want their program to crash but instead be caught in an exception clause. Usually in a catch clause the programmer will print out a message to the user to what went wrong.
+Example code smell:
+try
+      {
+         enter(rid);
+         rideBegin[ rid ] = false;
+         while( rideBegin[rid] == false )
+            this.wait();
+      }
+      catch (Exception e)
+      { }
+ This is a code smell because the catch clause is empty and it doesn’t give us any information. To fix the code smell is to print a message for what went wrong.
+Example of fix code smell:
+try
+      {
+         enter(rid);
+         rideBegin[ rid ] = false;
+         while( rideBegin[rid] == false )
+            this.wait();
+      }
+      catch (Exception e)
+      {
+         System.out.println(e.toString());        
+      }
+http://c2.com/cgi/wiki?EmptyCatchClause
+Code Smell that I chose was duplicated code.  When writing a function in a class, your code should not have any redundancy. When the programmer has redundancy code then it should be remove because there’s no point of having it.
+
+Dillon Hiatt
+
+Example of Redundancy Code
+Person FindUndergrade( const Person & p )
+{
+   For (int I = 0; i < count; i++)
+     If( arrayPerson(i).IsUndergrad())
+       Return arrayPerson(i);
+  End loop;
+ Return null;
+}
+
+Person FindGrad( const Person & p )
+{
+   For (int I = 0; i < count; i++)
+     If( arrayPerson(i).IsGraduate())
+       Return arrayPerson(i);
+  End loop;
+ Return null;
+}
+Person FindDoctrine( const Person & p )
+{
+   For (int I = 0; i < count; i++)
+     If( arrayPerson(i).Doctrine())
+       Return arrayPerson(i);
+  End loop;
+ Return null;
+}
+
+We can fix the problem by having one function for find a person and check to see if there an undergrad, graduate, or doctrine.
+
+Person FindPerson( const Person & p )
+{
+   For (int I = 0; i < count; i++)
+     If( arrayPerson(i).Doctrine())
+       Return arrayPerson(i);
+    Else if (arrayPerson(i).Graduate())
+       Return arrayPerson(i);
+   Else if (arrayPerson(i).Undergrad())
+       Return arrayPerson(i);
+  End loop;
+   Return null;
+}
+http://c2.com/cgi/wiki?DuplicatedCode
+
+Dillon Hiatt
