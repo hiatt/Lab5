@@ -121,3 +121,33 @@ private 7DObject DoDifficultCalculations ( 7DObject handy7D );
 
 Alex Richter
 
+
+Variable Name Same As Type
+This code smell deals with variables names that are the same as their type name.
+Every variable should have a meaningful name and using the type name as the variable name makes the variable name useless.
+Example: input
+   string str;
+   while(cin>>str)
+   {
+      fstream file(str.c_str());
+      while(file>>str)
+      {
+         cout<<str<<endl;
+      }
+   }
+
+Fixed:
+   string filename;
+   while(cin>>filename)
+   {
+      fstream input(filename.c_str())
+      string line;
+      while(input>>line)
+      {
+         cout<<line<<endl;
+      }
+   }
+
+Dylan Jones
+
+
