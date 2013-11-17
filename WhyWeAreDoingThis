@@ -1,0 +1,10 @@
+Dylan Jones:
+We are doing lab 5 in order to understand extreme programming and test driven
+development in a more realistic environment.  By keeping track of our progress
+using subversion and a spreadsheet, we are able to see each step of the process
+as it works together.  In the spreadsheet, we are able to see how Wake's
+Traffic Light metaphor works with test driven development.  Each iteration
+includes writing the test case so the code doesn't compile, writing stubs so
+the code compiles but the test case fails, and finally writing the
+functionality to pass the test case.  Lab 5 demonstrates how this process works
+well in software engineering.
