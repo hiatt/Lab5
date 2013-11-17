@@ -20,7 +20,7 @@ try
       }
       catch (Exception e)
       {
-         System.out.println(e.toString());        
+         System.out.println(e.toString());
       }
 http://c2.com/cgi/wiki?EmptyCatchClause
 Code Smell that I chose was duplicated code.  When writing a function in a class, your code should not have any redundancy. When the programmer has redundancy code then it should be remove because there’s no point of having it.
@@ -114,7 +114,7 @@ This can lead to difficult to interpret functions, and in general are annoying t
 
 private 7DObject DoDifficultCalculations ( int x, int y, int z, int alpha, int beta, int gamma, int zed);
 
-What we can do to fix this is either split up the function into helper functions if need be, or find a way to group all of 
+What we can do to fix this is either split up the function into helper functions if need be, or find a way to group all of
 that information into a more useful object, like so:
 
 private 7DObject DoDifficultCalculations ( 7DObject handy7D );
@@ -181,3 +181,16 @@ Fixed:
    cout<<sum<<endl;
 
 Dylan Jones
+
+Another code smell is using closely related words to mean very different things.
+
+For example, I could have a print() function, a display() function, an output() function, and a write(),
+which either write to a file, display, or printer.
+Then when someone wants to use our code they are uncertain what to use and have to look at documentation or the code.
+
+A related code smell is to never settle on using one term or metaphor.
+For example, using "pointer" and "reference" interchangeably, or "frame", "bound", and "window" interchangeably.
+The code is extra smelly is words that have a legitimate difference are used interchangeably, like "const" and "constant" in C,
+where a "const" variable is really read-only and *not* constant.
+
+Aaron Decker
