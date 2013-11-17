@@ -122,10 +122,10 @@ private 7DObject DoDifficultCalculations ( 7DObject handy7D );
 Alex Richter
 
 
-Variable Name Same As Type
+Variable Name Same As Type:
 This code smell deals with variables names that are the same as their type name.
 Every variable should have a meaningful name and using the type name as the variable name makes the variable name useless.
-Example: input
+Example:
    string str;
    while(cin>>str)
    {
@@ -151,3 +151,33 @@ Fixed:
 Dylan Jones
 
 
+While Not Done Loop:
+This code smell deals with while loops that use a control boolean variable, usually called done.
+The variable is set to true when the programmer wants the loop to stop.
+Using a done variable usually leads to complicated loops where it's not clear what the loop does.
+Example:
+   bool done = false;
+   int num;
+   int sum = 0;
+   while(!done)
+   {
+      cin>>num;
+      if(num % 5 == 0)
+         done = true;
+      else
+         sum += num;
+   }
+   cout<<sum<<endl;
+
+Fixed:
+   int num;
+   int sum = 0;
+   cin>>num;
+   while(num % 5 != 0)
+   {
+      sum += num;
+      cin>>num;
+   }
+   cout<<sum<<endl;
+
+Dylan Jones
