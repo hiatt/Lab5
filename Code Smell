@@ -181,3 +181,61 @@ Fixed:
    cout<<sum<<endl;
 
 Dylan Jones
+
+Message Chains:
+Message chains crop up when a client object wants some data from another object but has to pass through
+several intermediary classes. This is a coupling problem and if the structure of the classes changes 
+the message chain breaks.
+
+Example:
+Class Employee {
+    private EmployeeDataBase db;
+    private Data getLoginTime(int fizz) {
+        return db.getTimeSheetDataBase().getTimeSheet().getLoginTime();
+    }
+};
+
+The solution to this is to have the intermediate classes hide that they are delegating to other classes.
+Fixed Example:
+Class Employee {
+    private EmployeeDataBase db;
+    private Data getLoginTime(int fizz) {
+        return db.getEmployeeLoginTime();
+    }
+};
+
+Brendan Compton
+
+Data Class:
+A data class is a class that consists mainly of data with getter and setter functions, and not much else.
+Classes need to have actual responsibility in a good OO architecture, so a data class is considered poor form.
+
+class DataClass {
+    int x, y, z;
+    float axe, why, zee;
+    
+    int getX() {
+        return x;
+    }
+    int setX(int x) {
+        this.x = x;
+    }
+}
+
+The solution to this problem is to try to find places where the data class gets used, and extract functionality
+from those uses and move it into the data class.
+
+Fixed Example:
+class DataClass {
+    int x, y, z;
+    float axe, why, zee;
+    
+    int performComputation() {
+        return x + y + z;
+    }
+    float doMaths(int x) {
+        return x - axe * why + zee;
+    }
+}
+
+Brendan Compton
