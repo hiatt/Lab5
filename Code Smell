@@ -147,7 +147,7 @@ Fixed:
          cout<<line<<endl;
       }
    }
-
+Source: http://c2.com/cgi/wiki?VariableNameSameAsType
 Dylan Jones
 
 
@@ -179,7 +179,7 @@ Fixed:
       cin>>num;
    }
    cout<<sum<<endl;
-
+Source: http://c2.com/cgi/wiki?WhileNotDoneLoop
 Dylan Jones
 
 
