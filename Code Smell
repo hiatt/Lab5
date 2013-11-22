@@ -191,8 +191,12 @@ Then when someone wants to use our code they are uncertain what to use and have 
 
 A related code smell is to never settle on using one term or metaphor.
 For example, using "pointer" and "reference" interchangeably, or "frame", "bound", and "window" interchangeably.
-The code is extra smelly is words that have a legitimate difference are used interchangeably, like "const" and "constant" in C,
+The code is extra smelly when words that have a legitimate difference are used interchangeably, like "const" and "constant" in C,
 where a "const" variable is really read-only and *not* constant.
+
+Another code smell is over-use of delegates, specifically in Objective-C.
+Code may need to be refactored to use blocks (Objective-C closures) to avoid having one delegate that implements
+several interfaces. Too many delegates causes implicit coupling.
 
 Aaron Decker
 
